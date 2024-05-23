@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+      .navbar-header {
+           display: flex;
+           align-items: center; 
+       }
+   </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <img src="/grad-project/images/YU.png" width="30" height="30" class="d-inline-block align-top"> 
+            <a href="adminHomepage.html"><span class="navbar-brand">YU Space</span></a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/grad-project/pages/admin/Map/landingPage.php" class="navbar-brand"><i class="glyphicon glyphicon-map-marker"></i> Map </a></li>
+            <li><a href="add_event.html" class="navbar-brand"><i class="glyphicon glyphicon-bullhorn"></i> Event Bulletin Board</a></li>
+            <li><a href="download-pdf.html" class="navbar-brand"><i class="glyphicon glyphicon-education"></i> Mind-Map</a></li>
+            <li><a href="course_description.html" class="navbar-brand"><i class="glyphicon glyphicon-book"></i> Course Description</a></li>
+  
+            <li><a href="/grad-project/login.html" class="navbar-brand"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+
+        <!-- add an event form -->
+        <div class="col-sm-6">
+          <div class="panel panel-default border">
+            <div class="panel-heading">
+              <h3>Add an Event</h3>
+            </div>
+            <div class="panel-body">
+                <form method= "POST" id="addEventForm">
+
+              <div class="form-group border">
+                <label for="name">Event Name:</label><br>
+                <input type="text" class="form-control" id="name" name="name" required><br>
+              </div>
+            
+              <div class="form-group border">
+                <label for="description">Description:</label><br>
+                <textarea class="form-control" id="description" name="description" required></textarea><br>
+              </div>
+            
+              <div class="form-group border">
+                <label for="date">Date:</label><br>
+                <input type="date" class="form-control" id="date" name="date" required><br>
+              </div>
+            
+              <div class="form-group border">
+                <label for="time">Time:</label><br>
+        <input type="time" class="form-control" id="time" name="time" required><br>
+              </div>
+
+              <div class="form-group border">
+                <label for="organizers_details">Organizer Details:</label><br>
+        <input type="text" class="form-control" id="organizers_details" name="organizers_details " required><br>
+              </div>
+
+              <div class="form-group border">
+                <label for="location">Location:</label><br>
+                <input type="text" class="form-control" id="location" name="location" required><br>
+            </div>
+            
+            
+              <button type="submit" class="btn btn-warning" value="Add Event"><i class="glyphicon glyphicon-check"></i> Submit</button>
+              <button type="button" class="btn btn-danger">
+                <a href="edit.php" class="btn-link"><i class="glyphicon glyphicon-wrench"></i> Edit Events</a>
+            </button>  
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="list-group" id="eventsContainer">
+              
+              
+            </div>
+          </div>
+      </div>
+    
+    <script src="add_event.js"></script>
+</body>
+</html>

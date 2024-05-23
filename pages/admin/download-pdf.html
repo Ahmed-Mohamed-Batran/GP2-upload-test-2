@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Map</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+      .navbar-header {
+           display: flex;
+           align-items: center; 
+       }
+   </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+</head> 
+
+<body> 
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <img src="/grad-project/images/YU.png" width="30" height="30" class="d-inline-block align-top"> 
+            <a href="adminHomepage.html"><span class="navbar-brand">YU Space</span></a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/grad-project/pages/admin/Map/landingPage.php" class="navbar-brand"><i class="glyphicon glyphicon-map-marker"></i> Map </a></li>
+            <li><a href="add_event.html" class="navbar-brand"><i class="glyphicon glyphicon-bullhorn"></i> Event Bulletin Board</a></li>
+            <li><a href="download-pdf.html" class="navbar-brand"><i class="glyphicon glyphicon-education"></i> Mind-Map</a></li>
+            <li><a href="course_description.html" class="navbar-brand"><i class="glyphicon glyphicon-book"></i> Course Description</a></li>
+  
+            <li><a href="/grad-project/login.html" class="navbar-brand"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+	<center> 
+		<p><b>The Mind Map of NES Study Plan</b> 
+		</p>
+    <iframe src="/grad-project/pdfs/NES.pdf" width="600" height="500"></iframe> 
+		<!--<button type="button" class="btn btn-warning"><a href="download.php?pdf_id=2">Download NES PDF</a></button>--> 
+
+        <p><b>The Mind Map of SWE Study Plan</b> 
+		</p>
+    <iframe src="/grad-project/pdfs/SWE.pdf" width="600" height="500"></iframe>
+		<!--<button type="button" class="btn btn-warning"><a href="download.php?pdf_id=1">Download SWE PDF</a></button>--> 
+    <p><b>Click the button below to update the pdf files</b> 
+		</p>
+		<button type="button" class="btn btn-danger">
+      <a href="update_mind-map.html" class="btn-link"><i class="glyphicon glyphicon-wrench"></i> Update</a>
+  </button>
+    </center> 
+</body> 
+
+</html> 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="login.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-sm-8">
+        <div class="panel panel-default border">
+            <div class="panel-heading">
+                <h2>Login</h2>
+            </div>
+            <div class="panel-body">
+    <form class="form-horizontal" id="loginForm">
+        <div class="imgcontainer">
+            <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
+          </div>
+        <div class="form-group border">
+            <label class="control-label col-sm-2" for="email">Email:</label>
+            <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required><br>
+            </div>
+        </div>
+        <div class="form-group border">
+            <label class="control-label col-sm-2" for="password">Password:</label>
+            <div class="col-sm-10">      
+        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required><br>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-warning">Log In</button>
+            
+    </form>
+    <div id="otpContainer" style="display:none;">
+        <label>Generated OTP:</label><br>
+        <span id="generatedOtp"></span><br>
+        <label>Your OTP:</label><br>
+        <input type="text" id="enteredOtp" required><br>
+        <button id="otpSubmitButton">Verify OTP</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script>
+        // Wrap the entire script in a DOMContentLoaded event listener
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                fetch('login.php', {method: 'POST', body: formData})
+               .then(response => response.json()) // Parse JSON response
+               .then(data => {
+                    // Display the OTP to the user
+                    document.getElementById('generatedOtp').innerText = data.otp;
+
+                    // Always show the OTP container
+                    document.getElementById('otpContainer').style.display = 'block';
+
+
+                    document.getElementById('otpSubmitButton').addEventListener('click', function() {
+                        validateOTP(data.role); // Pass the role to the validation function
+                    });
+                })
+               .catch(error => console.error('Error:', error));
+            });
+
+            function validateOTP(role) {
+                var enteredOtp = document.getElementById('enteredOtp').value;
+                var correctOtp = document.getElementById('generatedOtp').innerText;
+                if (enteredOtp === correctOtp) {
+                    console.log(role);
+                    alert("Correct!!!");
+                    if (role === "admin") {
+                        window.location.href = "/grad-project/pages/admin/adminHomepage.html"; // Redirect to admin page
+                    } else {
+                        window.location.href = "/grad-project/pages/user/userHomepage.html"; // Redirect to user page
+                    }
+                } else {
+                    alert("Incorrect OTP. Please try again.");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
